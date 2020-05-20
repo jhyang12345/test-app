@@ -1,4 +1,7 @@
 export interface Action {
-  type: string,
-  payload: any
+  type: string
+}
+
+export interface TestState {
+  value: number
 }

@@ -1,11 +1,11 @@
-import { Action } from 'reducers/models'
+import { Action, TestState } from 'reducers/models'
 
-let defaultState = {
+let defaultState: TestState = {
   value: 0
 }
 
-const INCREMENT_VALUE = 'INCREMENT_VALUE'
-const DECREMENT_VALUE = 'DECREMENT_VALUE'
+export const INCREMENT_VALUE = 'INCREMENT_VALUE'
+export const DECREMENT_VALUE = 'DECREMENT_VALUE'
 
 export default function test(state=defaultState, action: Action) {
   switch (action.type) {
