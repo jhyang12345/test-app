@@ -1,4 +1,4 @@
-import { all, put, takeEvery } from 'redux-saga/effects'
+import { all, put, takeEvery, takeLatest } from 'redux-saga/effects'
 
 const delay = (ms: number) => new Promise(res => setTimeout(res, ms))
 
@@ -13,7 +13,7 @@ export function* incrementAsync() {
 }
 
 export function* watchIncrementAsync() {
-  yield takeEvery('INCREMENT_ASYNC', incrementAsync)
+  yield takeLatest('INCREMENT_ASYNC', incrementAsync)
 }
 
 export default function* rootSage() {
