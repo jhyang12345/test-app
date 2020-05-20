@@ -11,7 +11,7 @@ import './App.css'
 import reducer from 'reducers'
 import rootSaga from 'sagas'
 
-import { INCREMENT_VALUE } from 'reducers/test'
+import { TestActionTypes } from 'reducers/test'
 
 import Counter from 'components/Counter'
 
@@ -28,8 +28,8 @@ sagaMiddleware.run(rootSaga)
 
 function increment() {
   store.dispatch({
-    type: INCREMENT_VALUE
-  })
+    type: TestActionTypes.INCREMENT_ASYNC,
+  });
 }
 
 function App() {
