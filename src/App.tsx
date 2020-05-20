@@ -2,15 +2,29 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
 import React from 'react'
+
+import { applyMiddleware } from 'redux'
+import logger from 'redux-logger'
+import createSagaMiddleware from 'redux-saga'
+
 import './App.css'
 import reducer from 'reducers'
-import middleware from 'middleware'
+import rootSaga from 'sagas'
 
 import { INCREMENT_VALUE } from 'reducers/test'
 
 import Counter from 'components/Counter'
 
+const sagaMiddleware = createSagaMiddleware()
+
+const middleware = applyMiddleware(
+  logger,
+  sagaMiddleware
+)
+
 const store = createStore(reducer, middleware)
+
+sagaMiddleware.run(rootSaga)
 
 function increment() {
   store.dispatch({
