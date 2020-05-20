@@ -1,5 +1,6 @@
 import { helloSaga } from 'sagas'
 
 test('helloSaga', () => {
-  expect(helloSaga()).toEqual('Nothing')
+  const gen = helloSaga()
+  expect(gen.next().value).toEqual('Nothing')
 })
